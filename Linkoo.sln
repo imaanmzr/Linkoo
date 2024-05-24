@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linkoo.API", "Linkoo.API\Linkoo.API.csproj", "{F6043EC3-E692-4921-9362-6DBDA5532BDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linkoo.Domain", "Linkoo.Domain\Linkoo.Domain.csproj", "{0BE73ECF-452B-4B30-BAF8-4CD6D75A10C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linkoo.Infrastructure", "Linkoo.Infrastructure\Linkoo.Infrastructure.csproj", "{276FE54E-B795-4733-87AA-DEE0BDABD7FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linkoo.Persistence", "Linkoo.Persistence\Linkoo.Persistence.csproj", "{84BB5F07-BF30-4823-A2AB-F1BCC9082BAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linkoo.Application", "Linkoo.Application\Linkoo.Application.csproj", "{4A0F4A6F-287B-4832-B4A4-AB1FAE6B7588}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6043EC3-E692-4921-9362-6DBDA5532BDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6043EC3-E692-4921-9362-6DBDA5532BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6043EC3-E692-4921-9362-6DBDA5532BDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6043EC3-E692-4921-9362-6DBDA5532BDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BE73ECF-452B-4B30-BAF8-4CD6D75A10C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BE73ECF-452B-4B30-BAF8-4CD6D75A10C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BE73ECF-452B-4B30-BAF8-4CD6D75A10C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BE73ECF-452B-4B30-BAF8-4CD6D75A10C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{276FE54E-B795-4733-87AA-DEE0BDABD7FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{276FE54E-B795-4733-87AA-DEE0BDABD7FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{276FE54E-B795-4733-87AA-DEE0BDABD7FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{276FE54E-B795-4733-87AA-DEE0BDABD7FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84BB5F07-BF30-4823-A2AB-F1BCC9082BAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84BB5F07-BF30-4823-A2AB-F1BCC9082BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84BB5F07-BF30-4823-A2AB-F1BCC9082BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84BB5F07-BF30-4823-A2AB-F1BCC9082BAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A0F4A6F-287B-4832-B4A4-AB1FAE6B7588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A0F4A6F-287B-4832-B4A4-AB1FAE6B7588}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A0F4A6F-287B-4832-B4A4-AB1FAE6B7588}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A0F4A6F-287B-4832-B4A4-AB1FAE6B7588}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,10 +1,12 @@
-using Linkoo.Domain.Entities.Common;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Linkoo.Domain.Entities
+namespace Linkoo.Application.Features.Activity.ActivityQueries.GetActivity
 {
-    public class Activity : BaseEntity
+    public class GetActivityDto
     {
-
         public string? Title { get; set; }
         public string? Description { get; set; }
         public string? Category { get; set; }

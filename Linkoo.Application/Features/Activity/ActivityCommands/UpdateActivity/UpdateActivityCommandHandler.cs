@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Linkoo.Application.Common.Models;
 using Linkoo.Application.Contracts.Persistence.Repositories;
 using Linkoo.Domain.Entities;
 using MediatR;
 
 namespace Linkoo.Application.Features.Activity.ActivityCommands.UpdateActivity
 {
-    public class UpdateActivityCommandHandler : IRequestHandler<UpdateActivityCommand, Unit>
+    public class UpdateActivityCommandHandler : IRequestHandler<UpdateActivityCommand, Result<Unit>>
     {
         private readonly IMapper _mapper;
         private readonly IActivityRepository _activityRepository;
@@ -19,11 +20,13 @@ namespace Linkoo.Application.Features.Activity.ActivityCommands.UpdateActivity
             _mapper = mapper;
             _activityRepository = activityRepository;
         }
-        public async Task<Unit> Handle(UpdateActivityCommand request, CancellationToken cancellationToken)
+        public async Task<Result<Unit>> Handle(UpdateActivityCommand request, CancellationToken cancellationToken)
         {
-            var activityToUpdate = _mapper.Map<Domain.Entities.Activity>(request);
+            var activityToUpdate = await _activityRepository.GetByIdAsync(request.Id);
+            if(activityToUpdate==null) return Result<Unit>.Failure("Failed to update activity");
+            activityToUpdate = _mapper.Map<Domain.Entities.Activity>(request);
             await _activityRepository.UpdateAsync(activityToUpdate);
-            return Unit.Value;
+            return Result<Unit>.Success(Unit.Value);
         }
     }
 }

@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Linkoo.Application.Common.Models;
 using MediatR;
 
 namespace Linkoo.Application.Features.Activity.ActivityQueries.GetActivity
 {
-    public record GetActivityQuery(Guid Id):IRequest<GetActivityDto>;
+    public record GetActivityQuery(Guid Id):IRequest<Result<GetActivityDto>>;
 }

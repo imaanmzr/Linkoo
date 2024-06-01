@@ -16,40 +16,34 @@ namespace Linkoo.API.Controllers
     {
 
         [HttpGet]
-        public async Task<List<GetAllActivitiesDto>> Get()
+        public async Task<IActionResult> Get()
         {
-            var activities = await Mediator.Send(new GetAllActivitiesQuery());
-
-            return activities;
+            return HandleResults(await Mediator!.Send(new GetAllActivitiesQuery()));
         }
 
         [HttpGet("{id}")]
-        public async Task<GetActivityDto> Get(Guid id)
+        public async Task<IActionResult> Get(Guid id)
         {
-            return await Mediator.Send(new GetActivityQuery(id));
+            return HandleResults(await Mediator!.Send(new GetActivityQuery(id)));
         }
 
         [HttpPost]
         public async Task<IActionResult> Post(CreateActivityCommand createActivityCommand)
         {
-            var response = await Mediator.Send(createActivityCommand);
-            return CreatedAtAction(nameof(Get), new { id = response });
+            return HandleResults(await Mediator!.Send(createActivityCommand));
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(UpdateActivityCommand updateActivityCommand)
         {
-            await Mediator.Send(updateActivityCommand);
-            return NoContent();
+            return HandleResults(await Mediator!.Send(updateActivityCommand));
         }
 
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var command = new DeleteActivityCommand { Id = id };
-            await Mediator.Send(command);
-            return NoContent();
+            return HandleResults(await Mediator!.Send(new DeleteActivityCommand { Id = id }));
         }
     }
 }

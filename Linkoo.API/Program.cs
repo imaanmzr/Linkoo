@@ -1,3 +1,4 @@
+using Linkoo.API.Middlewares;
 using Linkoo.Application;
 using Linkoo.Persistence;
 using Linkoo.Persistence.DatabaseContext;
@@ -21,6 +22,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {

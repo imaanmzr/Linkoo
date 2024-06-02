@@ -11,14 +11,15 @@ namespace Linkoo.Persistence
     {
         public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<LinkooDbContext>(options=>{
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
-            });
+            services.AddDbContext<LinkooDbContext>(options =>
+          {
+              options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+          });
 
-            services.AddScoped<IActivityRepository,ActivityRepository>();
+            services.AddScoped<IActivityRepository, ActivityRepository>();
 
             return services;
         }
-        
+
     }
 }

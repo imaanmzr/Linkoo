@@ -15,11 +15,6 @@ namespace Linkoo.Persistence.DatabaseContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(LinkooDbContext).Assembly);
-
-            // modelBuilder.Entity<Activity>()
-            //             .Property(e => e.Id)
-            //             .IsRowVersion();
-
             base.OnModelCreating(modelBuilder);
         }
 

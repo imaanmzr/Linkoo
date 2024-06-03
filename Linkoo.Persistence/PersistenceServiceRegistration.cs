@@ -17,6 +17,7 @@ namespace Linkoo.Persistence
           });
 
             services.AddScoped<IActivityRepository, ActivityRepository>();
+            services.AddScoped<IUnitOfWork>(serviceProvider => serviceProvider.GetRequiredService<LinkooDbContext>());
 
             return services;
         }

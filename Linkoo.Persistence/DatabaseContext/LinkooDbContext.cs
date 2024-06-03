@@ -1,10 +1,11 @@
+using Linkoo.Application.Contracts.Persistence.Repositories;
 using Linkoo.Domain.Entities;
 using Linkoo.Domain.Entities.Common;
 using Microsoft.EntityFrameworkCore;
 
 namespace Linkoo.Persistence.DatabaseContext
 {
-    public class LinkooDbContext : DbContext
+    public class LinkooDbContext : DbContext, IUnitOfWork
     {
         public LinkooDbContext(DbContextOptions<LinkooDbContext> options) : base(options)
         {
@@ -33,6 +34,11 @@ namespace Linkoo.Persistence.DatabaseContext
             }
 
             return base.SaveChangesAsync(cancellationToken);
+        }
+
+        public async Task CommitChangesAsync()
+        {
+           await base.SaveChangesAsync();
         }
     }
 }

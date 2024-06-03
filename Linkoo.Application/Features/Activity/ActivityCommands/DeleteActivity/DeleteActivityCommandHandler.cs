@@ -9,11 +9,13 @@ namespace Linkoo.Application.Features.Activity.ActivityCommands.DeleteActivity
     {
         private readonly IMapper _mapper;
         private readonly IActivityRepository _activityRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public DeleteActivityCommandHandler(IMapper mapper, IActivityRepository activityRepository)
+        public DeleteActivityCommandHandler(IMapper mapper, IActivityRepository activityRepository, IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
             _activityRepository = activityRepository;
+            _unitOfWork = unitOfWork;
         }
         public async Task<Result<Unit>> Handle(DeleteActivityCommand request, CancellationToken cancellationToken)
         {
@@ -24,6 +26,7 @@ namespace Linkoo.Application.Features.Activity.ActivityCommands.DeleteActivity
             activityToDelete = _mapper.Map<Domain.Entities.Activity>(request);
 
             await _activityRepository.DeleteAsync(activityToDelete);
+            await _unitOfWork.CommitChangesAsync();
 
             return Result<Unit>.Success(Unit.Value);
         }

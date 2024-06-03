@@ -19,14 +19,19 @@ namespace Linkoo.Application.Features.Activity.ActivityBaseValidator
                 .MaximumLength(500).WithMessage("{PropertyName} maximum length is 500 characters");
             
             RuleFor(x => x.Category)
-                .NotEmpty();
+                .NotEmpty()
+                .MinimumLength(2).WithMessage("{PropertyName} minimum length is 2 characters")
+                .MaximumLength(100).WithMessage("{PropertyName} maximum length is 100 characters");
 
             RuleFor(x => x.City)
-                .NotEmpty();
-
+                .NotEmpty()
+                .MinimumLength(2).WithMessage("{PropertyName} minimum length is 2 characters")
+                .MaximumLength(100).WithMessage("{PropertyName} maximum length is 100 characters");
+                
             RuleFor(x => x.Venue)
-                .NotEmpty();
-            
+                .NotEmpty()
+                .MinimumLength(2).WithMessage("{PropertyName} minimum length is 2 characters")
+                .MaximumLength(100).WithMessage("{PropertyName} maximum length is 100 characters");
         }
     }
 }

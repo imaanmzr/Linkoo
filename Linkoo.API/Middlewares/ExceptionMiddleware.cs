@@ -1,6 +1,6 @@
 using System.Net;
 using System.Text.Json;
-using Linkoo.Application.Common.Models;
+using Linkoo.Application.Common.Models.Exception;
 
 namespace Linkoo.API.Middlewares
 {

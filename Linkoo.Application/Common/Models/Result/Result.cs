@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Linkoo.Application.Common.Models
+namespace Linkoo.Application.Common.Models.Result
 {
     public class Result<T>
     {

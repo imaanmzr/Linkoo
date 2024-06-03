@@ -3,11 +3,7 @@ using Linkoo.Application.Features.Activity.ActivityCommands.DeleteActivity;
 using Linkoo.Application.Features.Activity.ActivityCommands.UpdateActivity;
 using Linkoo.Application.Features.Activity.ActivityQueries.GetActivity;
 using Linkoo.Application.Features.ActivityQueries.GetAllActivities;
-using Linkoo.Persistence.DatabaseContext;
-using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 
 namespace Linkoo.API.Controllers

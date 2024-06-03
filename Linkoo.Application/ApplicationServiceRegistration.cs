@@ -1,11 +1,8 @@
 using System.Reflection;
-using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using FluentValidation;
 using Linkoo.Application.Features.Activity.ActivityCommands.CreateActivity;
 using FluentValidation.AspNetCore;
-using Linkoo.Application.Features.ActivityBaseDtos;
-using Linkoo.Application.Features.Activity.ActivityBaseValidator;
 
 namespace Linkoo.Application;
 

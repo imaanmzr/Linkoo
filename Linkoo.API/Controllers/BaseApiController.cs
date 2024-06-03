@@ -1,6 +1,5 @@
-﻿using Linkoo.Application.Common.Models;
+﻿using Linkoo.Application.Common.Models.Result;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Linkoo.API.Controllers

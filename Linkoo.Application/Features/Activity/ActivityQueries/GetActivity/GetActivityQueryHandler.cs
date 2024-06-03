@@ -1,5 +1,5 @@
 using AutoMapper;
-using Linkoo.Application.Common.Models;
+using Linkoo.Application.Common.Models.Result;
 using Linkoo.Application.Contracts.Persistence.Repositories;
 using MediatR;
 

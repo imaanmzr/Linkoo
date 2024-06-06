@@ -8,6 +8,6 @@ namespace Linkoo.Domain.Entities.Common
     public abstract class BaseEntity
     {
         public Guid Id { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
     }
 }

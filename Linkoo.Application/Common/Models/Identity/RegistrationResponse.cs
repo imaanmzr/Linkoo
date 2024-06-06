@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace Linkoo.Application.Common.Models.Identity
 {
-    public class RegisterationResponse
+    public class RegistrationResponse
     {
-        
+        public string UserName { get; set; }
     }
 }

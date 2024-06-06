@@ -24,6 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Linkoo.Application\Linkoo.Application.csproj" />
     <ProjectReference Include="..\Linkoo.Persistence\Linkoo.Persistence.csproj" />
+    <ProjectReference Include="..\Linkoo.Identity\Linkoo.Identity.csproj" />
   </ItemGroup>
 
 </Project>

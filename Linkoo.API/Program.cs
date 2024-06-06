@@ -2,19 +2,29 @@ using Linkoo.API.Middlewares;
 using Linkoo.Application;
 using Linkoo.Persistence;
 using Linkoo.Persistence.DatabaseContext;
+using Linkoo.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options=>{
+    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+    options.Filters.Add(new AuthorizeFilter(policy));
+});
 
+builder.Services.AddIdentityServices(builder.Configuration);
 builder.Services.AddPersistenceServices(builder.Configuration);
 builder.Services.AddApplicationServices();
+builder.Services.AddHttpContextAccessor();
 
 
-builder.Services.AddCors(options=>{
-    options.AddPolicy("CorsPolicy", policy=>{
-        policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000");
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", policy =>
+    {
+        policy.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
     });
 });
 
@@ -23,15 +33,19 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-app.UseMiddleware<ExceptionMiddleware>();
+//app.UseMiddleware<ExceptionMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
-	app.UseSwagger();
-	app.UseSwaggerUI();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseCors("CorsPolicy");
+
+app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
@@ -47,8 +61,8 @@ try
 }
 catch (Exception ex)
 {
-var logger = services.GetRequiredService<ILogger>();
-    logger.LogError(ex,"An error occured during migration");
+    var logger = services.GetRequiredService<ILogger>();
+    logger.LogError(ex, "An error occured during migration");
 }
 
 app.Run();

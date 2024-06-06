@@ -3,11 +3,12 @@ using Linkoo.Application.Features.Activity.ActivityCommands.DeleteActivity;
 using Linkoo.Application.Features.Activity.ActivityCommands.UpdateActivity;
 using Linkoo.Application.Features.Activity.ActivityQueries.GetActivity;
 using Linkoo.Application.Features.ActivityQueries.GetAllActivities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace Linkoo.API.Controllers
-{
+{   
     public class ActivitiesController : BaseApiController
     {
 
